@@ -17,6 +17,7 @@ public class Program {
         System.out.println(seller);
 
         System.out.println("\n=== TEST 2: Seller FindByDepartement ====");
+        Department department = new Department(2, null);
         List<Seller> list = sellerdao.findByDepartment(new Department(2, null));
         for (Seller obj : list) {
             System.out.println(obj);
@@ -27,6 +28,11 @@ public class Program {
         for (Seller obj : list) {
             System.out.println(obj);
         }
+
+        System.out.println("\n=== TEST 4: Seller Insert ====");
+        Seller newseller = new Seller(null, "Greg", "greg@gmail.com", new Date(), 4000.00, department);
+      sellerdao.insert(newseller);
+        System.out.println("Insert a new seller wit ID: "+ newseller.getId());
 
     }
 }
